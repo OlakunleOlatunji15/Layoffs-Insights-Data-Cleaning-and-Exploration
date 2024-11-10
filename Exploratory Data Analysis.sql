@@ -10,11 +10,13 @@ SELECT *  												-- Checking for everything where the percentage laid off  
 FROM layoffs_staging2
 WHERE percentage_laid_off = 1
 ORDER BY funds_raised_millions DESC;
+-- companies like Britishvolt,Quibi had 100% layoffs
 
 SELECT company, SUM(total_laid_off)
 FROM layoffs_staging2
 GROUP BY 1
 ORDER BY 2 DESC;
+--Amazon had the highest layoffs with about 18150 layoffs--
 
 SELECT MIN(`date`), MAX(`date`)
 FROM layoffs_staging2;
@@ -23,16 +25,21 @@ SELECT Industry, SUM(total_laid_off)        -- Checking which industry had the h
 FROM layoffs_staging2
 GROUP BY industry
 ORDER BY 2 DESC;
+-- The consumer industry had the highest number of layoffs of about 45182
+
 
 SELECT Country, SUM(total_laid_off)
 FROM layoffs_staging2
 GROUP BY 1
 ORDER BY 2 DESC;
+-- The country with the highest layoffs 'United States', '256559' and Poland had the lowest with about 25 based on the dataset analyzed
 
-SELECT YEAR(`date`), SUM(total_laid_off)    -- To show the tottal laid off by year usg the year function to pick out the year from the Date Column--
+
+SELECT YEAR(`date`), SUM(total_laid_off)    -- To show the tottal laid off by year using the year function to pick out the year from the Date Column--
 FROM layoffs_staging2
 GROUP BY YEAR(`date`)
 ORDER BY 1 DESC;
+
 
 SELECT stage, SUM(total_laid_off)    
 FROM layoffs_staging2
