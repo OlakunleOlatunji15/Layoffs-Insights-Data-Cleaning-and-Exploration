@@ -37,7 +37,7 @@ WHERE row_num  > 1
 ;
 
 SELECT * FROM layoffs_staging 
-WHERE company = 'casper'
+WHERE company = 'casper' -- This was just to check to confirm if there was a duplicate to confirm the query above --
 ;
 
 
